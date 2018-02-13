@@ -18,10 +18,11 @@ test('should link to information about the company.', (assert) => {
   });
 });
 
-test('should link to contact information.', () => {
-});
-
-test('should list available rentals.', () => {
+test('should list available rentals.', (assert) => {
+  visit('/');
+  andThen( () => {
+    assert.equal(find('.listing').length, 3, 'should see 3 listing')
+  });
 });
 
 test('should filter the list of rentals by city.', () => {
